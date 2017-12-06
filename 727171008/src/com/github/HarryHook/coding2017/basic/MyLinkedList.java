@@ -184,7 +184,18 @@ public class MyLinkedList implements List {
 	head.next = null;
 	head = p1;
     }
-
+    /*
+    递归形式反转链表
+    */
+    public ListNode reverse(ListNode head) {
+    	if(head == null || head.next ==  null){
+		return head;
+	}
+	ListNode pReverseNode = reverse(head.next);
+	head.next.next = head;
+	head.next = null;
+	return pReverseNode;
+    }
     /**
      * 删除一个单链表的前半部分 例如：list = 2->5->7->8 , 删除以后的值为 7->8 如果list = 2->5->7->8->10
      * ,删除以后的值为7,8,10
